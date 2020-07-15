@@ -84,27 +84,82 @@ using namespace std;
 ///Максимальная сумма
 ///В этой задаче вам требуется найти непустой отрезок массива с максимальной суммой.
 
-const int MAXN = 10000500;
-const int MAXVALUE = 10005000;
-int n;
-long long arr[MAXN];
+//const int MAXN = 10000500;
+//const int MAXVALUE = 10005000;
+//int n;
+//long long arr[MAXN];
+//
+//int main() {
+//    ios_base::sync_with_stdio(0);
+//    cin.tie(0);
+//
+//    cin>>n;
+//
+//    long long max_sum = -MAXVALUE;
+//    long long sum = 0;
+//    long long min_sum = 0;
+//    for(int i = 0; i < n; ++i){
+//        cin >> arr[i];
+//        sum+= arr[i];
+//        max_sum = max(max_sum, sum - min_sum);
+//        min_sum = min(min_sum, sum);
+//    }
+//
+//    cout << max_sum;
+//    return 0;
+//}
 
-int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+///Бинарный поиск
+///В этой задаче требуется выяснить,
+/// сколько шагов сделает бинарный поиск в задаче из лекции.
+//int n, m;
+//int k;
+//
+//int main(){
+//    cin>>n>>m;
+//
+//    for (int i = 0; i < m; ++i) {
+//        cin>>k;
+//        int res = 0;
+//        int l = -1;
+//        int r = n;
+//        while (l + 1 < r){
+//            res += 1;
+//            int mid = (l + r)/2;
+//            if(mid < k){
+//                l = mid;
+//            } else{
+//                r = mid;
+//            }
+//        }
+//        cout<<res<<"\n";
+//    }
+//
+//    return 0;
+//}
 
-    cin>>n;
+///Результат бинарного поиска
+///В этой задаче вам даны ответы на запросы бинпоиска - массив, каждое значение которого совпадает с очередным
+/// \texttt{a[mid]}a[mid]  в реализации бинарного поиска из лекции. Вам требуется вывести результат, который получил такой бинарный поиск - позицию первой единицы. Обратите внимание - как и в предыдущей задаче,
+/// массив нумеруется с нуля.
 
-    long long max_sum = -MAXVALUE;
-    long long sum = 0;
-    long long min_sum = 0;
-    for(int i = 0; i < n; ++i){
-        cin >> arr[i];
-        sum+= arr[i];
-        max_sum = max(max_sum, sum - min_sum);
-        min_sum = min(min_sum, sum);
+int n, m;
+int k;
+
+int main(){
+    cin>>n>>m;
+    int l = -1;
+    int r = n;
+    //int res = -1;
+    for (int i = 0; i < m; ++i) {
+        cin>>k;
+        int mid = (l + r)/2;
+        if(k == 0){
+            l = mid;}
+        else{
+            r = mid;
+        }
     }
-
-    cout << max_sum;
+    cout<<r;
     return 0;
 }
